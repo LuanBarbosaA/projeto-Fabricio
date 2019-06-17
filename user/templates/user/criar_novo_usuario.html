@@ -1,0 +1,9 @@
+{% extends 'sas/base.html' %}
+{% load static %}
+{% block conteudo %}
+    <form action="{% url 'user:novo_usuario' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-info">Cadastrar</button>
+    </form>
+{% endblock %}
