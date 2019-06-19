@@ -3,7 +3,8 @@
 {% block conteudo %}
     <form action="{% url 'user:novo_usuario' %}" method="post">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form_registration.as_p}}
+        {{form_user_profile.as_p}}
         <button type="submit" class="btn btn-info">Cadastrar</button>
     </form>
 {% endblock %}

@@ -3,9 +3,7 @@
 {% block conteudo %}
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-info">Logar</button>
+        {{form_booking.as_p}}
+        <button type="submit" class="btn btn-info">Cadastrar booking</button>
     </form>
-{% endblock %}
-{% block script %}
 {% endblock %}

@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 
+app_name = 'peoject'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('user/', include('user.urls')),
-    url('index/', include('sas.urls'))
+    url('booking/', include('booking.urls')),
+    url('index/', include('sas.urls', namespace='sas')),
+    url('', include('sas.urls'))
 ]

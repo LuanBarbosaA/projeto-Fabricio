@@ -95,7 +95,7 @@ class Tag(models.Model):
         return choices
 
 
-BOOKING_STATUS = ((0, ("Denied")), (1, ("Pending")), (2, ("Approved")))
+BOOKING_STATUS = ((0, ("Negado")), (1, ("Pendente")), (2, ("Aprovado")))
 
 
 class Booking(models.Model):
@@ -109,7 +109,7 @@ class Booking(models.Model):
     end_date = models.DateField(null=False, blank=False)
     status = models.PositiveSmallIntegerField(choices=BOOKING_STATUS,
                                               default=2)
-    tags = models.ManyToManyField(Tag, related_name="tags")
+    tags = models.ManyToManyField(Tag, related_name="tags", blank=True, null=True)
 
     engineering = models.CharField(choices=ENGINEERINGS, max_length=5)
 
