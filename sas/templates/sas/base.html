@@ -25,9 +25,11 @@
               <li class="nav-item active">
                 <a class="nav-link" href="#">Pesquisar Lugares</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Pesquisar Vagas</a>
-              </li>
+              {% if user.is_authenticated %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'booking:minhas_reservas' %}">Minhas reservas</a>
+                </li>
+              {% endif %}
             </ul>
             <span class="navbar-text">
               <i class="fas fa-user"></i>

@@ -1,0 +1,32 @@
+{% extends 'sas/base.html' %}
+{% load static %}
+{% block conteudo %}
+    <form action="{% url 'booking:minhas_reservas' %}" method="post">
+        {% csrf_token %}
+        <!-- <button class="btn btn-danger" type="submit">Apagar</button> -->
+        {% for reserva in reservas_list %}
+            <h2>Nome</h2>
+            {{reserva.name}}
+            <br>
+            <h2>Prédio</h2>
+            {{reserva.place}}
+            <br>
+            <h2>Área de conhecimento</h2>
+            {{reserva.engineering}}
+            <br>
+            <h2>Responsável</h2>
+            {{reserva.responsible}}
+            <br>
+            <h2>Hora e dia</h2>
+            {% for tempo in reserva.time.all %}                
+                {{tempo}}                
+            {% endfor %}
+            <br>
+            <h2>Status</h2>
+            {{reserva.status}}
+            <br>
+            <!-- <input type="checkbox" name="reserva{{resserva.id}}" id="" value="{{reserva.id}}"> -->
+            <hr>           
+        {% endfor %}
+    </form>
+{% endblock %}
